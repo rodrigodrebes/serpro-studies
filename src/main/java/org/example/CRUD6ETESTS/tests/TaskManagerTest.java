@@ -1,6 +1,8 @@
 package org.example.CRUD6ETESTS.tests;
 
+import org.example.CRUD6ETESTS.Task;
 import org.example.CRUD6ETESTS.TaskManager;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +15,10 @@ public class TaskManagerTest {
         tm = new TaskManager();
         tm.addTask("Mercado", "compras", "Sim");
 
+    }
+    @After
+    public void tearDown() {
+        tm.getTasks().clear();
     }
 
     @Test
@@ -27,7 +33,6 @@ public class TaskManagerTest {
         int taskId = tm.getTasks().get(0).getId();
         tm.removeTaskById(taskId);
 
-
         Assert.assertTrue(tm.getTasks().isEmpty());
     }
 
@@ -41,7 +46,10 @@ public class TaskManagerTest {
     @Test
     public void deveAtualizarTask(){
         tm.updateTask(tm.getTasks().get(0).getId(), "Petshop", "Areia", "N");
-        Assert.assertEquals(tm.getTasks().get(0).getTitle(), "Petshop");
+        Task tarefaAtualizada = tm.getTasks().get(0);
+        Assert.assertEquals("Petshop", tarefaAtualizada.getTitle());
+        Assert.assertEquals("Areia", tarefaAtualizada.getDescription());
+        Assert.assertEquals("N", tarefaAtualizada.getCompleted());
     }
 
 
