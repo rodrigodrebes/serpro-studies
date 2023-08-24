@@ -1,4 +1,4 @@
-package org.example.CRUD7POSTGRESETESTES;
+package org.example.CRUD7POSTGRESETESTES.Application;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
