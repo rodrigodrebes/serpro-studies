@@ -6,7 +6,7 @@
              version="2.2">
 
     <persistence-unit name="jpa-exemplo" transaction-type="RESOURCE_LOCAL">
-        <class>com.example.Produto</class>
+        <class>org.example.JPABasico.Pessoa</class>
 
         <!-- Configurações do banco de dados -->
         <properties>
