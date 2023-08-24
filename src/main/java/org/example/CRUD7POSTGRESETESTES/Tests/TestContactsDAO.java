@@ -49,7 +49,6 @@ public class TestContactsDAO {
         testContactsDAO.addContact(contact);
         Contacts contatoAtualizado = new Contacts(contact.getId(),"Pedro", "p@gmail.com", "598989");
         testContactsDAO.updateContact(contatoAtualizado);
-
         Assert.assertEquals("Pedro",contatoAtualizado.getName());
     }
 }
