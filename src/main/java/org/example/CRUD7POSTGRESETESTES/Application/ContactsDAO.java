@@ -12,13 +12,20 @@ public class ContactsDAO {
         String sql = "INSERT INTO contacts (name, email, phone) VALUES (?,?,?)";
 
         try(Connection conn = ConnectionDB.getConexao();
-            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
 
             pstmt.setString(1,contact.getName());
             pstmt.setString(2, contact.getEmail());
             pstmt.setString(3,contact.getPhone());
 
             pstmt.executeUpdate();
+
+            // Recupera o ID gerado pelo banco
+            try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    contact.setId(generatedKeys.getInt(1));
+                }
+            }
 
     }catch (SQLException e){
             e.printStackTrace();
@@ -49,6 +56,31 @@ public class ContactsDAO {
 
         return contactsList;
     }
+
+    public Contacts getContactById(int id){
+        String sql = "SELECT * FROM contacts WHERE id = ?";
+
+        try(Connection conn = ConnectionDB.getConexao();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                Contacts contato = new Contacts();
+                contato.setId(rs.getInt("id"));
+                contato.setName(rs.getString("name"));
+                contato.setEmail(rs.getString("email"));
+                contato.setPhone(rs.getString("phone"));
+                return contato;
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     public void removeContact(int id){
 
