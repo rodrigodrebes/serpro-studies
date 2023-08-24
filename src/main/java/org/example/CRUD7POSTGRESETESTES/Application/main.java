@@ -35,5 +35,13 @@ public class main {
 //            System.out.println(c);
 //        }
 
+//        // return by id
+//        System.out.println(contactsDAO.getContactById(41));
+
+//        // return by name
+//        contactsDAO.addContact(new Contacts("Ana","a@gmail.com","5555555"));
+//        for(Contacts c: contactsDAO.concactsListByName()){
+//            System.out.println(c);
+//        }
     }
 }
