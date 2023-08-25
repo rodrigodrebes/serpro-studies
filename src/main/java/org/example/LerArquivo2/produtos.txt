@@ -1,0 +1,4 @@
+computador,12990.90,apple
+televisao,2450.00,samsung
+smartphone,999.99,google
+sofa,785.50,madeiramadeira
