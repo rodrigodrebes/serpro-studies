@@ -1,0 +1,13 @@
+PRODUTOS:
+Nome: televisao
+Preço: 2450.0
+Marca: samsung
+-----
+Nome: smartphone
+Preço: 999.99
+Marca: google
+-----
+Nome: sofa
+Preço: 785.5
+Marca: madeiramadeira
+-----
