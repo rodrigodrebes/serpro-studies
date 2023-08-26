@@ -14,7 +14,6 @@ public class DbFunctions {
         } return conn;
     }
 
-
     public static void createTable() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS funcionario (id INTEGER PRIMARY KEY AUTOINCREMENT , nome TEXT, departamento TEXT, salario DOUBLE)";
 

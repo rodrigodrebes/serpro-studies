@@ -19,7 +19,7 @@ public class main {
 
 //        funcionarioDAO.removeFuncionario(3);
         funcionarioDAO.getAll().forEach(System.out::println);
-//        funcionarioDAO.searchById(3);
+    funcionarioDAO.searchById(1);
 
     }
 }
