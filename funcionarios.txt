@@ -1,0 +1,10 @@
+Funcionarios
+ID: 1
+NOME: Rodrigo
+DEPTO: TI
+ID: 2
+NOME: Thiago
+DEPTO: Almoxarifado
+ID: 3
+NOME: Fernanda
+DEPTO: Administração
